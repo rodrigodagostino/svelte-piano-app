@@ -1,11 +1,11 @@
 <script lang="ts">
-  import Counter from './lib/Counter.svelte'
+  import Keys from './lib/Keys.svelte'
   import svelteLogo from './assets/images/svelte-logo.svg'
 </script>
 
 <main class="app-main">
   <div class="container">
-    <Counter />
+    <Keys />
   </div>
 </main>
 <footer class="app-footer">
