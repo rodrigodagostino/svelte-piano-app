@@ -16,6 +16,7 @@
       | 'b'
     type: 'white' | 'black'
     key: 'a' | 'w' | 's' | 'e' | 'd' | 'f' | 't' | 'g' | 'y' | 'h' | 'u' | 'j'
+    isActive?: boolean
   }
 </script>
 
@@ -23,14 +24,23 @@
   export let note: IKey['note']
   export let type: IKey['type']
   export let key: IKey['key']
+  export let isActive = false
 
-  const handleOnClick = (_: MouseEvent, note: IKey['note']) => {
+  const handleOnMouseDown = (note: IKey['note']) => {
+    isActive = true
     const audio = new Audio(`./assets/sounds/${note}.mp3`)
     audio.play()
   }
+
+  const handleOnMouseUp = () => (isActive = false)
 </script>
 
-<button class={`key key--${type}`} on:click={(event) => handleOnClick(event, note)}>
+<button
+  class={`key key--${type}`}
+  class:is-active={isActive}
+  on:mousedown={() => handleOnMouseDown(note)}
+  on:mouseup={handleOnMouseUp}
+>
   {key.toUpperCase()}
 </button>
 
@@ -51,6 +61,10 @@
       &:focus {
         z-index: 1;
       }
+
+      &.is-active {
+        background-color: var(--gray-200);
+      }
     }
 
     &--black {
@@ -60,6 +74,10 @@
       background-color: var(--black);
       color: var(--white);
       z-index: 10;
+
+      &.is-active {
+        background-color: var(--gray-800);
+      }
     }
   }
 </style>

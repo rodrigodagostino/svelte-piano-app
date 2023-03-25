@@ -64,17 +64,29 @@
     },
   ]
 
-  const handleOnKeydown = (event: KeyboardEvent) => {
+  let activeKeys: string[] = []
+
+  const handleOnKeyDown = (event: KeyboardEvent) => {
     const filteredKey = keys.filter((key) => key.key === event.key.toLowerCase())[0]
-    filteredKey && new Audio(`./assets/sounds/${filteredKey.note}.mp3`).play()
+    if (filteredKey && !activeKeys.includes(filteredKey.key)) {
+      activeKeys = [...activeKeys, event.key.toLowerCase()]
+      new Audio(`./assets/sounds/${filteredKey.note}.mp3`).play()
+    }
+  }
+
+  const handleOnKeyUp = (event: KeyboardEvent) => {
+    const filteredKey = keys.filter((key) => key.key === event.key.toLowerCase())[0]
+    if (filteredKey) {
+      activeKeys = activeKeys.filter((activeKey) => activeKey !== event.key.toLowerCase())
+    }
   }
 </script>
 
-<svelte:window on:keydown={handleOnKeydown} />
+<svelte:window on:keydown={handleOnKeyDown} on:keyup={handleOnKeyUp} />
 
 <div class="keys">
   {#each keys as { note, type, key }}
-    <Key {note} {type} {key} />
+    <Key {note} {type} {key} isActive={activeKeys.includes(key)} />
   {/each}
 </div>
 
