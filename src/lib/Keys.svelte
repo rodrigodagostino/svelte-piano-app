@@ -63,7 +63,14 @@
       key: 'j',
     },
   ]
+
+  const handleOnKeydown = (event) => {
+    const filteredKey = keys.filter((key) => key.key === event.key.toLowerCase())[0]
+    filteredKey && new Audio(`./assets/sounds/${filteredKey.note}.mp3`).play()
+  }
 </script>
+
+<svelte:window on:keydown={handleOnKeydown} />
 
 <div class="keys">
   {#each keys as { note, type, key }}
