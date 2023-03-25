@@ -24,13 +24,13 @@
   export let type: IKey['type']
   export let key: IKey['key']
 
-  const handleOnClick = (event, note) => {
+  const handleOnClick = (_: MouseEvent, note: IKey['note']) => {
     const audio = new Audio(`./assets/sounds/${note}.mp3`)
     audio.play()
   }
 </script>
 
-<button class={`key key--${type}`} on:click={() => handleOnClick(event, note)}>
+<button class={`key key--${type}`} on:click={(event) => handleOnClick(event, note)}>
   {key.toUpperCase()}
 </button>
 

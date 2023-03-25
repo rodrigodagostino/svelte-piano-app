@@ -64,7 +64,7 @@
     },
   ]
 
-  const handleOnKeydown = (event) => {
+  const handleOnKeydown = (event: KeyboardEvent) => {
     const filteredKey = keys.filter((key) => key.key === event.key.toLowerCase())[0]
     filteredKey && new Audio(`./assets/sounds/${filteredKey.note}.mp3`).play()
   }
