@@ -92,7 +92,9 @@
 
 <style lang="scss">
   .keys {
+    --keys-gap: 0.5rem;
     display: flex;
+    gap: var(--keys-gap);
     height: 20rem;
   }
 </style>

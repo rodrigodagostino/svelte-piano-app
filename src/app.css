@@ -17,27 +17,16 @@
 :root {
   --font-main: "Poppins", Avenir, Helvetica, Arial, sans-serif;
 
-  --emerald-050: #ecfdf5;
-  --emerald-100: #d1fae5;
-  --emerald-200: #a7f3d0;
-  --emerald-300: #6ee7b7;
-  --emerald-400: #34d399;
-  --emerald-500: #10b981;
-  --emerald-600: #059669;
-  --emerald-700: #047857;
-  --emerald-800: #065f46;
-  --emerald-900: #064e3b;
-
-  --teal-050: #f0fdfa;
-  --teal-100: #ccfbf1;
-  --teal-200: #99f6e4;
-  --teal-300: #5eead4;
-  --teal-400: #2dd4bf;
-  --teal-500: #14b8a6;
-  --teal-600: #0d9488;
-  --teal-700: #0f766e;
-  --teal-800: #115e59;
-  --teal-900: #134e4a;
+  --cyan-050: #ecfeff;
+  --cyan-100: #cffafe;
+  --cyan-200: #a5f3fc;
+  --cyan-300: #67e8f9;
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+  --cyan-600: #0891b2;
+  --cyan-700: #0e7490;
+  --cyan-800: #155e75;
+  --cyan-900: #164e63;
 
   --white-rich: #fff;
   --white: #f3f3f5;
@@ -97,11 +86,11 @@ hr {
 
 ::selection {
   color: var(--white);
-  background: var(--teal-600);
+  background: var(--cyan-600);
 }
 
 a {
-  color: var(--teal-600);
+  color: var(--cyan-600);
   transition: color 0.32s, outline 0.32s;
   outline: 1px dotted transparent;
 }
