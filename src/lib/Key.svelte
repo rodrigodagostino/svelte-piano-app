@@ -27,7 +27,7 @@
   export let isActive = false
 
   const handleOnKeyDown = (event: KeyboardEvent, note: IKey['note']) => {
-    if (event.code === 'Enter' || event.code === 'Space') {
+    if ((event.code === 'Enter' || event.code === 'Space') && !isActive) {
       isActive = true
       const audio = new Audio(`./assets/sounds/${note}.mp3`)
       audio.play()
