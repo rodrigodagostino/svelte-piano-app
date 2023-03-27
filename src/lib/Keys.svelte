@@ -95,6 +95,24 @@
     --keys-gap: 0.5rem;
     display: flex;
     gap: var(--keys-gap);
-    height: 20rem;
+    height: 14rem;
+  }
+
+  @media (min-height: 27.5em) {
+    .keys {
+      height: 16rem;
+    }
+  }
+
+  @media (min-height: 32.5em) {
+    .keys {
+      height: 18rem;
+    }
+  }
+
+  @media (min-height: 43.75em) {
+    .keys {
+      height: 20rem;
+    }
   }
 </style>

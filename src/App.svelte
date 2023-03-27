@@ -1,10 +1,15 @@
 <script lang="ts">
   import Keys from './lib/Keys.svelte'
   import svelteLogo from './assets/images/svelte-logo.svg'
+  import rotateIcon from './assets/images/rotate-solid-icon.svg'
 </script>
 
 <main class="app-main">
   <div class="container">
+    <p class="orientation-message">
+      <img class="orientation-message__icon" src={rotateIcon} alt="" />
+      <span class="orientation-message__text">Rotate your screen for a better experience</span>
+    </p>
     <Keys />
   </div>
 </main>
@@ -25,7 +30,20 @@
   }
 
   .app-main {
-    margin-top: 24vh;
+    margin-top: 12vh;
+  }
+
+  .orientation-message {
+    display: none;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+
+    &__icon {
+      width: auto;
+      height: 1rem;
+    }
   }
 
   .app-footer {
@@ -56,6 +74,30 @@
       vertical-align: middle;
       margin: 0 0.25rem;
       display: inline-block;
+    }
+  }
+
+  @media (max-width: 33em) and (orientation: portrait) {
+    .orientation-message {
+      display: flex;
+    }
+  }
+
+  @media (min-height: 27.5em) {
+    .app-main {
+      margin-top: 16vh;
+    }
+  }
+
+  @media (min-height: 32.5em) {
+    .app-main {
+      margin-top: 18vh;
+    }
+  }
+
+  @media (min-height: 43.75em) {
+    .app-main {
+      margin-top: 24vh;
     }
   }
 </style>
