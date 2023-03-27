@@ -26,20 +26,30 @@
   export let key: IKey['key']
   export let isActive = false
 
+  const handleOnKeyDown = (event: KeyboardEvent, note: IKey['note']) => {
+    if (event.code === 'Enter' || event.code === 'Space') {
+      isActive = true
+      const audio = new Audio(`./assets/sounds/${note}.mp3`)
+      audio.play()
+    }
+  }
+
   const handleOnMouseDown = (note: IKey['note']) => {
     isActive = true
     const audio = new Audio(`./assets/sounds/${note}.mp3`)
     audio.play()
   }
 
-  const handleOnMouseUp = () => (isActive = false)
+  const handleOnKeyOrMouseUp = () => (isActive = false)
 </script>
 
 <button
   class={`key key--${type}`}
   class:is-active={isActive}
+  on:keydown={(event) => handleOnKeyDown(event, note)}
+  on:keyup={handleOnKeyOrMouseUp}
   on:mousedown={() => handleOnMouseDown(note)}
-  on:mouseup={handleOnMouseUp}
+  on:mouseup={handleOnKeyOrMouseUp}
 >
   <span class="key__letter">{key.toUpperCase()}</span>
 </button>
