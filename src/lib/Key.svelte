@@ -13,34 +13,34 @@
       | 'g-sharp'
       | 'a'
       | 'a-sharp'
-      | 'b'
-    type: 'white' | 'black'
-    key: 'a' | 'w' | 's' | 'e' | 'd' | 'f' | 't' | 'g' | 'y' | 'h' | 'u' | 'j'
-    isActive?: boolean
+      | 'b';
+    type: 'white' | 'black';
+    key: 'a' | 'w' | 's' | 'e' | 'd' | 'f' | 't' | 'g' | 'y' | 'h' | 'u' | 'j';
+    isActive?: boolean;
   }
 </script>
 
 <script lang="ts">
-  export let note: IKey['note']
-  export let type: IKey['type']
-  export let key: IKey['key']
-  export let isActive = false
+  export let note: IKey['note'];
+  export let type: IKey['type'];
+  export let key: IKey['key'];
+  export let isActive = false;
 
   const handleOnKeyDown = (event: KeyboardEvent, note: IKey['note']) => {
     if ((event.code === 'Enter' || event.code === 'Space') && !isActive) {
-      isActive = true
-      const audio = new Audio(`./assets/sounds/${note}.mp3`)
-      audio.play()
+      isActive = true;
+      const audio = new Audio(`./assets/sounds/${note}.mp3`);
+      audio.play();
     }
-  }
+  };
 
   const handleOnMouseDown = (note: IKey['note']) => {
-    isActive = true
-    const audio = new Audio(`./assets/sounds/${note}.mp3`)
-    audio.play()
-  }
+    isActive = true;
+    const audio = new Audio(`./assets/sounds/${note}.mp3`);
+    audio.play();
+  };
 
-  const handleOnKeyOrMouseUp = () => (isActive = false)
+  const handleOnKeyOrMouseUp = () => (isActive = false);
 </script>
 
 <button
@@ -67,7 +67,10 @@
     border-radius: var(--key-border-radius);
     outline: 0.1875rem solid transparent;
     transform: translate3d(0, 0, 0);
-    transition: background-color 0.24s ease, box-shadow 0.24s ease, transform 0.24s ease,
+    transition:
+      background-color 0.24s ease,
+      box-shadow 0.24s ease,
+      transform 0.24s ease,
       outline 0.24s;
     will-change: box-shadow, transform;
     cursor: pointer;
@@ -99,7 +102,8 @@
       --box-shadow-height--pressed: 0.25rem;
       width: var(--white-key-width);
       background: var(--gray-050);
-      box-shadow: 0 var(--box-shadow-height) 0 var(--gray-200),
+      box-shadow:
+        0 var(--box-shadow-height) 0 var(--gray-200),
         0 -0.0625rem 0.25rem rgba(45, 35, 66, 0.12),
         0 calc(var(--box-shadow-height) + 0.125rem) 0.125rem rgba(45, 35, 66, 0.12),
         0 calc(var(--box-shadow-height) + 0.25rem) 0.25rem rgba(45, 35, 66, 0.12),
@@ -111,7 +115,8 @@
 
       &.is-active {
         background: var(--cyan-100);
-        box-shadow: 0 var(--box-shadow-height--pressed) 0 var(--cyan-300),
+        box-shadow:
+          0 var(--box-shadow-height--pressed) 0 var(--cyan-300),
           0 -0.0625rem 0.25rem rgba(45, 35, 66, 0.12),
           0 calc(var(--box-shadow-height--pressed) + 0.0625rem) 0.0625rem rgba(45, 35, 66, 0.12),
           0 calc(var(--box-shadow-height--pressed) + 0.1875rem) 0.125rem rgba(45, 35, 66, 0.12),
@@ -133,7 +138,8 @@
       height: 60%;
       margin: -1.5rem calc((var(--black-key-width) / 2 + var(--keys-gap) / 2) * -1) 0;
       background: var(--gray-700);
-      box-shadow: 0 var(--box-shadow-height) 0 var(--gray-800),
+      box-shadow:
+        0 var(--box-shadow-height) 0 var(--gray-800),
         0 -0.0625rem 0.25rem rgba(45, 35, 66, 0.12),
         0 calc(var(--box-shadow-height) + 0.125rem) 0.125rem rgba(45, 35, 66, 0.12),
         0 calc(var(--box-shadow-height) + 0.25rem) 0.25rem rgba(45, 35, 66, 0.12),
@@ -146,7 +152,8 @@
 
       &.is-active {
         background-color: var(--cyan-700);
-        box-shadow: 0 var(--box-shadow-height--pressed) 0 var(--cyan-800),
+        box-shadow:
+          0 var(--box-shadow-height--pressed) 0 var(--cyan-800),
           0 -0.0625rem 0.25rem rgba(45, 35, 66, 0.12),
           0 calc(var(--box-shadow-height--pressed) + 0.0625rem) 0.0625rem rgba(45, 35, 66, 0.12),
           0 calc(var(--box-shadow-height--pressed) + 0.1875rem) 0.125rem rgba(45, 35, 66, 0.12),

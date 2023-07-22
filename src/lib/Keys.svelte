@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Key, { type IKey } from './Key.svelte'
+  import Key, { type IKey } from './Key.svelte';
 
   export const keys: IKey[] = [
     {
@@ -62,24 +62,24 @@
       type: 'white',
       key: 'j',
     },
-  ]
+  ];
 
-  let activeKeys: string[] = []
+  let activeKeys: string[] = [];
 
   const handleOnKeyDown = (event: KeyboardEvent) => {
-    const filteredKey = keys.filter((key) => key.key === event.key.toLowerCase())[0]
+    const filteredKey = keys.filter((key) => key.key === event.key.toLowerCase())[0];
     if (filteredKey && !activeKeys.includes(filteredKey.key)) {
-      activeKeys = [...activeKeys, event.key.toLowerCase()]
-      new Audio(`./assets/sounds/${filteredKey.note}.mp3`).play()
+      activeKeys = [...activeKeys, event.key.toLowerCase()];
+      new Audio(`./assets/sounds/${filteredKey.note}.mp3`).play();
     }
-  }
+  };
 
   const handleOnKeyUp = (event: KeyboardEvent) => {
-    const filteredKey = keys.filter((key) => key.key === event.key.toLowerCase())[0]
+    const filteredKey = keys.filter((key) => key.key === event.key.toLowerCase())[0];
     if (filteredKey) {
-      activeKeys = activeKeys.filter((activeKey) => activeKey !== event.key.toLowerCase())
+      activeKeys = activeKeys.filter((activeKey) => activeKey !== event.key.toLowerCase());
     }
-  }
+  };
 </script>
 
 <svelte:window on:keydown={handleOnKeyDown} on:keyup={handleOnKeyUp} />

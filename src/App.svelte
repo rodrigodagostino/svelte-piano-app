@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Keys from './lib/Keys.svelte'
-  import svelteLogo from './assets/images/svelte-logo.svg'
-  import rotateIcon from './assets/images/rotate-solid-icon.svg'
+  import Keys from './lib/Keys.svelte';
+  import svelteLogo from './assets/images/svelte-logo.svg';
+  import rotateIcon from './assets/images/rotate-solid-icon.svg';
 </script>
 
 <main class="app-main">
