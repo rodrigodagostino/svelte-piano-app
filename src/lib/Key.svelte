@@ -26,7 +26,7 @@
   export let key: IKey['key'];
   export let isActive = false;
 
-  const handleOnKeyDown = (event: KeyboardEvent, note: IKey['note']) => {
+  const handleKeyDown = (event: KeyboardEvent, note: IKey['note']) => {
     if ((event.code === 'Enter' || event.code === 'Space') && !isActive) {
       isActive = true;
       const audio = new Audio(`./assets/sounds/${note}.mp3`);
@@ -34,22 +34,31 @@
     }
   };
 
-  const handleOnMouseDown = (note: IKey['note']) => {
+  const handleMouseDownOrTouchStart = (note: IKey['note']) => {
     isActive = true;
     const audio = new Audio(`./assets/sounds/${note}.mp3`);
     audio.play();
   };
 
-  const handleOnKeyOrMouseUp = () => (isActive = false);
+  const handleKeyUpOrMouseUp = () => (isActive = false);
+
+  const handleTouchEnd = (event: TouchEvent) => {
+    // Prevent default mouse-emulation handling from happening.
+    // https://web.dev/articles/mobile-touchandmouse
+    event.preventDefault();
+    handleKeyUpOrMouseUp();
+  };
 </script>
 
 <button
   class={`key key--${type}`}
   class:is-active={isActive}
-  on:keydown={(event) => handleOnKeyDown(event, note)}
-  on:keyup={handleOnKeyOrMouseUp}
-  on:mousedown={() => handleOnMouseDown(note)}
-  on:mouseup={handleOnKeyOrMouseUp}
+  on:keydown={(event) => handleKeyDown(event, note)}
+  on:keyup={handleKeyUpOrMouseUp}
+  on:mousedown={() => handleMouseDownOrTouchStart(note)}
+  on:mouseup={handleKeyUpOrMouseUp}
+  on:touchstart={() => handleMouseDownOrTouchStart(note)}
+  on:touchend={(event) => handleTouchEnd(event)}
 >
   <span class="key__letter">{key.toUpperCase()}</span>
 </button>
