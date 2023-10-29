@@ -90,6 +90,19 @@
   {/each}
 </div>
 
+<audio src="./assets/sounds/a.mp3" preload="auto" />
+<audio src="./assets/sounds/a-sharp.mp3" preload="auto" />
+<audio src="./assets/sounds/b.mp3" preload="auto" />
+<audio src="./assets/sounds/c.mp3" preload="auto" />
+<audio src="./assets/sounds/c-sharp.mp3" preload="auto" />
+<audio src="./assets/sounds/d.mp3" preload="auto" />
+<audio src="./assets/sounds/d-sharp.mp3" preload="auto" />
+<audio src="./assets/sounds/e.mp3" preload="auto" />
+<audio src="./assets/sounds/f.mp3" preload="auto" />
+<audio src="./assets/sounds/f-sharp.mp3" preload="auto" />
+<audio src="./assets/sounds/g.mp3" preload="auto" />
+<audio src="./assets/sounds/g-sharp.mp3" preload="auto" />
+
 <style lang="scss">
   .keys {
     --keys-gap: 0.5rem;
