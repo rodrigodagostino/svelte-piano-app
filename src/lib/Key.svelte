@@ -77,10 +77,10 @@
     outline: 0.1875rem solid transparent;
     transform: translate3d(0, 0, 0);
     transition:
-      background-color 0.24s ease,
-      box-shadow 0.24s ease,
-      transform 0.24s ease,
-      outline 0.24s;
+      background-color 0.12s,
+      box-shadow 0.12s,
+      transform 0.12s,
+      outline 0.12s;
     will-change: box-shadow, transform;
     cursor: pointer;
 
