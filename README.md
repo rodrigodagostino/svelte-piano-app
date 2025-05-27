@@ -2,6 +2,10 @@
 
 This is a simple piano app built using Svelte. It allows users to play notes using their computer keyboard or by clicking on the piano keys.
 
+## Live demo:
+
+- [Netlify](https://s-piano-app.netlify.app)
+
 ## Getting Started
 
 To run this app on your local machine, you will need to have [Node.js](https://nodejs.org/) installed.
